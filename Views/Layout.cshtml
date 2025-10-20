@@ -2,54 +2,54 @@
 
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>j-indies!</title>
-		<link rel="stylesheet" href="~/css/bootstrap.min.css" />
-		<link rel="stylesheet" href="~/css/site.css" />
-	</head>
-	<body>
-		<div class="container">
-			<div class="main">
-				<header class="py-3">
-					<a href="/"><h1 class="text-center my-4">j-indies.net</h1></a>
-				</header>
-				<div class="row g-2 g-lg-0">
-					<div class="col-lg-2">
-						<nav class="navbar navbar-expand-lg py-0 px-1">
-							<div class="container-fluid align-items-center flex-lg-column align-items-lg-stretch p-0">
-								<div class="p-2"><b>navigation</b></div>
-								<button class="navbar-toggler m-lg-auto px-0 border-0 ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
-									<span class="navbar-toggler-icon"></span>
-								</button>
-								<div id="mainNav" class="collapse navbar-collapse">
-									<ul class="navbar-nav flex-column w-100 align-items-stretch text-end">
-										<li class="nav-item border-bottom-dashed">
-											<a class="nav-link p-2" href="/">home</a>
-										</li>
-										<li class="nav-item">
-											<a class="nav-link p-2" href="/artists">artists</a>
-										</li>
-										<li class="nav-item">
-											<a class="nav-link p-2" href="/artists">labels</a>
-										</li>
-									</ul>
-								</div>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>j-indies!</title>
+	<link rel="stylesheet" href="~/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+	<div class="container">
+		<div class="main">
+			<header class="py-3">
+				<a href="/"><h1 class="text-center my-4">j-indies.net</h1></a>
+			</header>
+			<div class="row">
+				<div class="col-lg-2">
+					<nav class="navbar navbar-expand-lg py-0 px-1">
+						<div class="container-fluid align-items-center flex-lg-column align-items-lg-stretch p-0">
+							<div class="p-2"><b>navigation</b></div>
+							<button class="navbar-toggler m-lg-auto px-0 border-0 ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+								<span class="navbar-toggler-icon"></span>
+							</button>
+							<div id="mainNav" class="collapse navbar-collapse">
+								<ul class="navbar-nav flex-column w-100 align-items-stretch text-end">
+									<li class="nav-item border-bottom-dashed">
+										<a class="nav-link p-2" href="/">home</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link p-2" href="/artists">artists</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link p-2" href="/labels">labels</a>
+									</li>
+								</ul>
 							</div>
-						</nav>
-					</div>
-					<div class="col-lg-10">
-						<div class="content">
-							@RenderBody()
 						</div>
+					</nav>
+				</div>
+				<div class="col-lg-10">
+					<div class="content p-2">
+						@RenderBody()
 					</div>
 				</div>
-				<footer class="p-2">
-					2025
-				</footer>
 			</div>
+			<footer class="p-2">
+				2025
+			</footer>
 		</div>
-		<script src="~/js/bootstrap.bundle.min.js"></script>
-	</body>
+	</div>
+	<script src="~/js/bootstrap.bundle.min.js"></script>
+</body>
 </html>
