@@ -1,0 +1,44 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.Artist>
+@using Umbraco.Cms.Core.Models
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+	Layout = "Layout.cshtml";
+
+	var imageList = Model.Images?.ToList() ?? [];
+}
+
+<div class="row g-3">
+	<div class="col-md-3">
+		@for (var i = 0; i < imageList.Count; i++)
+		{
+			<a data-fslightbox href="@imageList[i].Url()" class="text-end @(i != 0 ? "d-none" : "")">
+				<img class="artist-img" src="@imageList[i].Url()" alt="@imageList[i].Name"/>
+				@if (i == 0 && imageList.Count > 1)
+				{
+					<span class="btn btn-sm btn-blue mt-2">+@(imageList.Count - 1) more images</span>
+				}
+			</a>
+		}
+	</div>
+	<div class="col-md-9">
+		<h2>
+			@Model.ArtistName
+			@if (!string.IsNullOrWhiteSpace(Model.ArtistNameRomanized))
+			{
+				@("(" + Model.ArtistNameRomanized + ")")
+			}
+		</h2>
+		<p>
+			AKA:
+		</p>
+		<p>
+			Formed: @Model.Formed.ToShortDateString() <br/>
+			Disbanded: @Model.Disbanded.ToShortDateString()
+		</p>
+		@Model.Biography
+	</div>
+</div>
+<script src="~/js/fslightbox.js"></script>
+<script>
+	
+</script>
