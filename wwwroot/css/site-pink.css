@@ -1,0 +1,63 @@
+﻿body {
+    font-family: 'Meiryo', sans-serif;
+    font-size: 0.8rem;
+    background: url(/img/bg.jpg) repeat;
+    background-size: 50px 50px;
+}
+
+.main {
+    background-color: #ffebeb;
+    border: solid #7a1d3c;
+    border-width: 0 1px 1px 1px;
+}
+
+header {
+    background-color: #ffebeb;
+    border-bottom: 1px solid #7a1d3c;
+}
+
+    header a {
+        color: #7a1d3c;
+        text-decoration: none;
+    }
+
+.navbar {
+    background-color: #ffaec9;
+    border-bottom: solid #7a1d3c 1px;
+}
+
+.content {
+    min-height: 500px;
+    background-color: #ffebeb;
+    border-left: solid #7a1d3c 1px;
+}
+
+footer {
+    background-color: #ffaec9;
+    border-top: solid #7a1d3c 1px;
+}
+
+h2 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    background-color: #ffaec9;
+    padding: 0.5rem;
+}
+
+@media(min-width: 992px)
+{
+    a.nav-link {
+        border-top: 1px dashed #7a1d3c;
+    }
+}
+
+@media(max-width: 991px) {
+    a.nav-link {
+        text-align: end;
+        border-top: 1px dashed #7a1d3c;
+    }
+
+    .content {
+        border-left: none;
+    }
+}
