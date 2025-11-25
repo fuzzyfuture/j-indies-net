@@ -1,9 +1,15 @@
-﻿@using Umbraco.Cms.Web.Common.PublishedModels;
-@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.Artists>
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.Artists>
 @using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
 @{
 	Layout = "Layout.cshtml";
 }
 
 <h2>Artists</h2>
-
+<div class="row">
+	@foreach (var child in Model.Children.OfType<Artist>())
+	{
+		<div>
+			<a href="@child.Url()">@child.ArtistName</a>
+		</div>
+	}
+</div>
