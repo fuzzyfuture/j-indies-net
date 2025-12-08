@@ -4,22 +4,13 @@
 @{
 	Layout = "Layout.cshtml";
 
+	var maxImages = 10;
 	var imageList = Model.Images?.ToList() ?? [];
+	var aliasCount = Model.Aliases?.Count() ?? 0;
+	var hasFormed = Model.Formed.Year > 1900;
+	var hasDisbanded = Model.Disbanded.Year > 1900;
 }
-
 <div class="row g-3">
-	<div class="col-md-3">
-		@for (var i = 0; i < imageList.Count; i++)
-		{
-			<a data-fslightbox href="@imageList[i].Url()" class="text-end @(i != 0 ? "d-none" : "")">
-				<img class="artist-img" src="@imageList[i].Url()" alt="@imageList[i].Name"/>
-				@if (i == 0 && imageList.Count > 1)
-				{
-					<span class="btn btn-sm btn-blue mt-2">+@(imageList.Count - 1) more images</span>
-				}
-			</a>
-		}
-	</div>
 	<div class="col-md-9">
 		<h2>
 			@Model.ArtistName
@@ -28,17 +19,76 @@
 				@("(" + Model.ArtistNameRomanized + ")")
 			}
 		</h2>
-		<p>
-			AKA:
-		</p>
-		<p>
-			Formed: @Model.Formed.ToShortDateString() <br/>
-			Disbanded: @Model.Disbanded.ToShortDateString()
-		</p>
-		@Model.Biography
+		<div class="px-2">
+			@Model.Biography
+		</div>
+	</div>
+	<div class="col-md-3">
+		<div class="row mb-3 g-1">
+			<div class="col-12">
+				@if (imageList.Count > 0)
+				{
+					<a data-fslightbox href="@imageList[0].Url()" class="text-end">
+						<img class="artist-img" src="@imageList[0].Url()" alt="@imageList[0].Name"/>
+					</a>
+				}
+			</div>
+			@for (var i = 1; i < Math.Min(imageList.Count, maxImages); i++)
+			{
+				<div class="col-4">
+					<a data-fslightbox href="@imageList[i].Url()">
+						<img class="artist-img" src="@imageList[i].Url()" alt="@imageList[i].Name"/>
+					</a>
+				</div>
+			}
+			@if (imageList.Count > maxImages)
+			{
+				<span class="btn btn-sm btn-blue mt-2">+@(imageList.Count - 1) more images</span>
+			}
+		</div>
+		<div class="table-container">
+			<table class="table mb-0">
+				<tbody>
+				<tr>
+					<th>Aliases</th>
+					<td>Lucy van Pelt</td>
+				</tr>
+				<tr>
+					<th>Formed</th>
+					<td>1995</td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+		<div>
+			@if (aliasCount > 0)
+			{
+				<h3>Aliases</h3>
+				<p>
+					@for (var i = 0; i < aliasCount; i++)
+					{
+						@if (i < aliasCount - 1)
+						{
+							<span>@Model.Aliases?.ElementAt(i),</span>
+						}
+						else
+						{
+							<span>@Model.Aliases?.ElementAt(i)</span>
+						}
+					}
+				</p>
+			}
+			@if (hasFormed)
+			{
+				<h3>Formed</h3>
+				<p>@Model.Formed.ToString("MMMM d, yyyy")</p>
+			}
+			@if (hasDisbanded)
+			{
+				<h3>Disbanded</h3>
+				<p>@Model.Disbanded.ToString("MMMM d, yyyy")</p>
+			}
+		</div>
 	</div>
 </div>
 <script src="~/js/fslightbox.js"></script>
-<script>
-	
-</script>
