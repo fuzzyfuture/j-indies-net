@@ -13,10 +13,6 @@
 }
 
 header {
-    background: url(/img/stars-2.png) repeat;
-    border-radius: 10px;
-    border: 1px #38aedc solid;
-    box-shadow: inset 0 0 2px 2px rgba(255, 255, 255, 0.5), 0 0 2px 2px rgba(0, 0, 0, 0.1);
 }
 
 header a {
@@ -25,8 +21,15 @@ header a {
 }
 
 header a h1 {
+    word-break: keep-all;
     font-weight: bolder;
-    text-shadow: 2px 2px #64a9c1;
+    font-size: 4rem;
+    text-shadow: 4px 4px #19bde3, -2px -2px #19bde3, 2px -2px #19bde3, -2px 2px #19bde3;
+}
+
+header h1 {
+    font-weight: bolder;
+    font-size: 3.5rem;
 }
 
 .navbar {
@@ -43,6 +46,30 @@ header a h1 {
     background: rgba(255, 255, 255, 0.4);
     border: 1px solid rgba(255, 255, 255, 0.5);
     box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.1);
+}
+
+.content-red {
+    background: rgba(230, 48, 60, 0.4);
+}
+
+.content-pink {
+    background: rgba(243, 134, 175, 0.4);
+}
+
+.content-purple {
+    background: rgba(169, 131, 188, 0.4);
+}
+
+.content-blue {
+    background: rgba(53, 180, 233, 0.4);
+}
+
+.content-green {
+    background: rgba(170, 213, 46, 0.4);
+}
+
+.content-yellow {
+    background: rgba(254, 219, 39, 0.4);
 }
 
 .btn {
@@ -96,7 +123,18 @@ header a h1 {
 }
 
 h2 {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
+    font-weight: bold;
+    background: url(/img/stars-2.png) repeat;
+    color: white;
+    padding: 0.3rem 0.5rem;
+    border-radius: 5px;
+    border: 1px #38aedc solid;
+    box-shadow: inset 0 0 2px 2px rgba(255, 255, 255, 0.5);
+}
+
+h3 {
+    font-size: 1.0rem;
     font-weight: bold;
     background: url(/img/stars-2.png) repeat;
     color: white;
@@ -238,8 +276,17 @@ ul.navbar-nav {
 
 .artist-img {
     width: 100%;
-    height: auto;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
     border-radius: 5px;
-    border: 1px solid rgba(255, 255, 255, 0.5);
     border: 1px #38aedc solid;
+}
+
+.table-container {
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    box-shadow: inset 0 0 2px 2px rgba(255, 255, 255, 0.5);
+    background: url(/img/stars-2.png) repeat;
+    border: 1px #38aedc solid;
+    border-radius: 10px;
 }
